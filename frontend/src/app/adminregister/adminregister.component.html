@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding: 0%;margin: 0%;">
+    <a class="navbar-brand"  routerLink="/home">Home</a>
+  </nav>
+  <div class="container" class="class1">
+    <div class="container">
+
+      <form  #f="ngForm" (submit) = "f.form.valid && onSubmit()">
+        <h3> Admin Register</h3>
+      <br>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="model.username" #username="ngModel" [ngClass]="{'is-invalid' : f.submitted && username.invalid}"  required>
+        <div *ngIf="f.submitted && username.invalid"></div>
+        <span *ngIf="username.errors?.required" class="alert-danger">Please enter a username</span>
+      </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{'is-invalid' : f.submitted && email.invalid}"  required>
+          <div *ngIf="f.submitted && email.invalid"></div>
+          <span *ngIf="email.errors?.required" class="alert-danger">Please enter a Valid Email</span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{'is-invalid' : f.submitted && password.invalid}"  required>
+          <div *ngIf="f.submitted && password.invalid"></div>
+          <span *ngIf="password.errors?.required" class="alert-danger">Please enter a Valid password</span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword2" class="form-label">Repaassword</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="repassword" [(ngModel)]="model.repassword" #repassword="ngModel" [ngClass]="{'is-invalid' : f.submitted && repassword.invalid}"  required>
+          <div *ngIf="f.submitted && repassword.invalid"></div>
+          <span *ngIf="repassword.errors?.required" class="alert-danger">Please enter a Valid confirm password</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    </div>
+
+</body>
+</html>
